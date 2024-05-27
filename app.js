@@ -69,3 +69,18 @@ document.addEventListener('DOMContentLoaded', () => {
     updateData('exampleKey', { age: 31 });
     deleteData('exampleKey');
 });
+document.getElementById('create').addEventListener('click', () => {
+    createData('exampleKey', { name: 'John Doe', age: 30 });
+});
+
+document.getElementById('read').addEventListener('click', () => {
+    readData('exampleKey');
+});
+
+document.getElementById('update').addEventListener('click', () => {
+    updateData('exampleKey', { age: 31 });
+});
+
+document.getElementById('delete').addEventListener('click', () => {
+    deleteData('exampleKey');
+});
