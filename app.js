@@ -84,3 +84,26 @@ document.getElementById('update').addEventListener('click', () => {
 document.getElementById('delete').addEventListener('click', () => {
     deleteData('exampleKey');
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const content = document.getElementById('content');
+
+    // Example: Fetch data from Firebase and display it
+    database.ref('/test').set({ test: 'Test Data' })
+        .then(() => {
+            console.log('Data written successfully');
+        })
+        .catch(error => {
+            console.error('Error writing data:', error);
+        });
+
+    database.ref('/test').once('value')
+        .then(snapshot => {
+            const data = snapshot.val();
+            content.innerHTML = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+});
